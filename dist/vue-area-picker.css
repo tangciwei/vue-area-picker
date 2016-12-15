@@ -1,0 +1,43 @@
+.vue-area-picker label {
+  position: relative;
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 195px;
+  height: 40px;
+  overflow: hidden;
+}
+.vue-area-picker label:after,
+.vue-area-picker label:before {
+  content: ' ';
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-left: 6px solid #fff;
+}
+.vue-area-picker label:before {
+  border-left-color: #ccc;
+  right: 8px;
+}
+.vue-area-picker label + label {
+  margin-left: 10px;
+}
+.vue-area-picker select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+  border: none;
+  padding-left: 20px;
+  width: 195px;
+  height: 100%;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
+  font-size: 14px;
+  color: #7A7A7A;
+  line-height: 38px;
+  cursor: pointer;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "vue-area-picker",
+  "version": "0.0.1",
+  "description": "vue城市选择器,2.0版本，三级联动",
+  "main": "dist/vue-area-picker.common.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tangciwei/vue-area-picker.git"
+  },
+  "keywords": [
+    "vue-area-picker",
+    "city-picker",
+    "area-picker",
+    "vue2.0城市选择",
+    "多级联动",
+    "vue城市选择"
+  ],
+  "author": "tangciwei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tangciwei/vue-area-picker/issues"
+  },
+  "homepage": "https://github.com/tangciwei/vue-area-picker#readme"
+}
