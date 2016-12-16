@@ -57,8 +57,10 @@ let provinceList = REGION_DATA['86'];
 let getValue = (list, name) => {
     if (name) {
         for (let k in list) {
-            if (list[k].indexOf(name) !== -1) {
-                return k;
+            if (list.hasOwnProperty(k)) {
+                if (list[k].indexOf(name) !== -1) {
+                    return k;
+                }
             }
         }
     }
@@ -219,11 +221,11 @@ export default {
         width: 195px;
         height:100%;
 
-        border: 1px solid #CCCCCC;
+        border: 1px solid #ccc;
         border-radius: 2px;
 
         font-size: 14px;
-        color: #7A7A7A;
+        color: #7a7a7a;
         line-height: 38px;
         cursor: pointer;
     }

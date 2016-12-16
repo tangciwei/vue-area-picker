@@ -1,6 +1,6 @@
 {
   "name": "vue-area-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "vue城市选择器,2.0版本，三级联动",
   "main": "dist/vue-area-picker.common.js",
   "scripts": {

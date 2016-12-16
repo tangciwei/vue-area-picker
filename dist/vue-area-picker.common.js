@@ -26,15 +26,17 @@ var provinceList = _chinaAreaData2.default['86'];
 var getValue = function getValue(list, name) {
     if (name) {
         for (var k in list) {
-            if (list[k].indexOf(name) !== -1) {
-                return k;
+            if (list.hasOwnProperty(k)) {
+                if (list[k].indexOf(name) !== -1) {
+                    return k;
+                }
             }
         }
     }
 };
 
 exports.default = {
-    template: '\n        <div class="vue-area-picker">\n            <label class="province">\n              <select\n                :value="provinceValue"\n                @change="onchange(\'province\', $event.target.value)">\n                <option value="" v-text="placeholder.province"></option>\n                <option v-for="(text, value) in provinceList"\n                    :value="value"\n                    :selected="value===provinceValue"\n                    v-text="text">\n                </option>\n              </select>\n            </label>\n\n            <label class="city">\n              <select\n                :value="cityValue"\n                @change="onchange(\'city\', $event.target.value)">\n                <option value="" v-text="placeholder.city"></option>\n                <option v-for="(text, value) in cityList"\n                    :value="value"\n                    :selected="value===cityValue"\n                    v-text="text">\n                </option>\n              </select>\n            </label>\n\n            <label class="district" v-show="!twoSelect">\n              <select\n                :value="districtValue"\n                @change="onchange(\'district\', $event.target.value)">\n                <option value="" v-text="placeholder.district"></option>\n                <option v-for="(text, value) in districtList"\n                    :value="value"\n                    :selected="value===districtValue"\n                    v-text="text">\n                </option>\n              </select>\n            </label>\n        </div>\n    ',
+    template: '\n        <div class="city-picker">\n            <label class="province">\n              <select\n                :value="provinceValue"\n                @change="onchange(\'province\', $event.target.value)">\n                <option value="" v-text="placeholder.province"></option>\n                <option v-for="(text, value) in provinceList"\n                    :value="value"\n                    :selected="value===provinceValue"\n                    v-text="text">\n                </option>\n              </select>\n            </label>\n\n            <label class="city">\n              <select\n                :value="cityValue"\n                @change="onchange(\'city\', $event.target.value)">\n                <option value="" v-text="placeholder.city"></option>\n                <option v-for="(text, value) in cityList"\n                    :value="value"\n                    :selected="value===cityValue"\n                    v-text="text">\n                </option>\n              </select>\n            </label>\n\n            <label class="district" v-show="!twoSelect">\n              <select\n                :value="districtValue"\n                @change="onchange(\'district\', $event.target.value)">\n                <option value="" v-text="placeholder.district"></option>\n                <option v-for="(text, value) in districtList"\n                    :value="value"\n                    :selected="value===districtValue"\n                    v-text="text">\n                </option>\n              </select>\n            </label>\n        </div>\n    ',
     props: {
         province: {
             type: String,
