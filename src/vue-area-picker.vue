@@ -1,6 +1,6 @@
 <template>
     <div class="city-picker">
-        <label class="province">
+        <label class="province" :class="notIe">
           <select
             :value="provinceValue"
             @change="onchange('province', $event.target.value)">
@@ -13,7 +13,7 @@
           </select>
         </label>
 
-        <label class="city">
+        <label class="city" :class="notIe">
           <select
             :value="cityValue"
             @change="onchange('city', $event.target.value)">
@@ -26,7 +26,7 @@
           </select>
         </label>
 
-        <label class="district" v-show="!twoSelect">
+        <label class="district" v-show="!twoSelect" :class="notIe">
           <select
             :value="districtValue"
             @change="onchange('district', $event.target.value)">
@@ -108,6 +108,14 @@ export default {
             cityList: {},
             districtList: {}
         };
+    },
+    computed: {
+        notIe() {
+            let isIe = (/Trident\/7\./).test(navigator.userAgent);
+            return {
+                'not-ie': !isIe
+            }
+        }
     },
     // 解析数据
     created() {
