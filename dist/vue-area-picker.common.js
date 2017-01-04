@@ -36,6 +36,48 @@ var getValue = function getValue(list, name) {
 };
 
 exports.default = {
+    template: `
+        <div class="city-picker">
+            <label class="province" :class="notIe">
+              <select
+                :value="provinceValue"
+                @change="onchange('province', $event.target.value)">
+                <option value="" v-text="placeholder.province"></option>
+                <option v-for="(text, value) in provinceList"
+                    :value="value"
+                    :selected="value===provinceValue"
+                    v-text="text">
+                </option>
+              </select>
+            </label>
+
+            <label class="city" :class="notIe">
+              <select
+                :value="cityValue"
+                @change="onchange('city', $event.target.value)">
+                <option value="" v-text="placeholder.city"></option>
+                <option v-for="(text, value) in cityList"
+                    :value="value"
+                    :selected="value===cityValue"
+                    v-text="text">
+                </option>
+              </select>
+            </label>
+
+            <label class="district" v-show="!twoSelect" :class="notIe">
+              <select
+                :value="districtValue"
+                @change="onchange('district', $event.target.value)">
+                <option value="" v-text="placeholder.district"></option>
+                <option v-for="(text, value) in districtList"
+                    :value="value"
+                    :selected="value===districtValue"
+                    v-text="text">
+                </option>
+              </select>
+            </label>
+        </div>
+    `,
     props: {
         province: {
             type: String,
@@ -78,13 +120,12 @@ exports.default = {
             districtList: {}
         };
     },
-
     computed: {
-        notIe: function notIe() {
-            var isIe = /Trident\/7\./.test(navigator.userAgent);
+        notIe: function() {
+            let isIe = (/Trident\/7\./).test(navigator.userAgent);
             return {
                 'not-ie': !isIe
-            };
+            }
         }
     },
     // 解析数据
