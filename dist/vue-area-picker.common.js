@@ -36,48 +36,7 @@ var getValue = function getValue(list, name) {
 };
 
 exports.default = {
-    template: `
-        <div class="city-picker">
-            <label class="province" :class="notIe">
-              <select
-                :value="provinceValue"
-                @change="onchange('province', $event.target.value)">
-                <option value="" v-text="placeholder.province"></option>
-                <option v-for="(text, value) in provinceList"
-                    :value="value"
-                    :selected="value===provinceValue"
-                    v-text="text">
-                </option>
-              </select>
-            </label>
-
-            <label class="city" :class="notIe">
-              <select
-                :value="cityValue"
-                @change="onchange('city', $event.target.value)">
-                <option value="" v-text="placeholder.city"></option>
-                <option v-for="(text, value) in cityList"
-                    :value="value"
-                    :selected="value===cityValue"
-                    v-text="text">
-                </option>
-              </select>
-            </label>
-
-            <label class="district" v-show="!twoSelect" :class="notIe">
-              <select
-                :value="districtValue"
-                @change="onchange('district', $event.target.value)">
-                <option value="" v-text="placeholder.district"></option>
-                <option v-for="(text, value) in districtList"
-                    :value="value"
-                    :selected="value===districtValue"
-                    v-text="text">
-                </option>
-              </select>
-            </label>
-        </div>
-    `,
+    template: "\n        <div class=\"city-picker\">\n            <label class=\"province\" :class=\"notIe\">\n              <select\n                :value=\"provinceValue\"\n                @change=\"onchange('province', $event.target.value)\">\n                <option value=\"\" v-text=\"placeholder.province\"></option>\n                <option v-for=\"(text, value) in provinceList\"\n                    :value=\"value\"\n                    :selected=\"value===provinceValue\"\n                    v-text=\"text\">\n                </option>\n              </select>\n            </label>\n\n            <label class=\"city\" :class=\"notIe\">\n              <select\n                :value=\"cityValue\"\n                @change=\"onchange('city', $event.target.value)\">\n                <option value=\"\" v-text=\"placeholder.city\"></option>\n                <option v-for=\"(text, value) in cityList\"\n                    :value=\"value\"\n                    :selected=\"value===cityValue\"\n                    v-text=\"text\">\n                </option>\n              </select>\n            </label>\n\n            <label class=\"district\" v-show=\"!twoSelect\" :class=\"notIe\">\n              <select\n                :value=\"districtValue\"\n                @change=\"onchange('district', $event.target.value)\">\n                <option value=\"\" v-text=\"placeholder.district\"></option>\n                <option v-for=\"(text, value) in districtList\"\n                    :value=\"value\"\n                    :selected=\"value===districtValue\"\n                    v-text=\"text\">\n                </option>\n              </select>\n            </label>\n        </div>\n    ",
     props: {
         province: {
             type: String,
