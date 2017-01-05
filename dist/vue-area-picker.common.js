@@ -81,7 +81,7 @@ exports.default = {
     },
     computed: {
         notIe: function() {
-            let isIe = (/Trident\/7\./).test(navigator.userAgent);
+            var isIe = (/Trident\/7\./).test(navigator.userAgent);
             return {
                 'not-ie': !isIe
             }
