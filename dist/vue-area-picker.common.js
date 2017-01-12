@@ -36,7 +36,7 @@ var getValue = function getValue(list, name) {
 };
 
 exports.default = {
-    template: "\n        <div class=\"city-picker\">\n            <label class=\"province\" :class=\"notIe\">\n              <select\n                :value=\"provinceValue\"\n                @change=\"onchange('province', $event.target.value)\">\n                <option value=\"\" v-text=\"placeholder.province\"></option>\n                <option v-for=\"(text, value) in provinceList\"\n                    :value=\"value\"\n                    :selected=\"value===provinceValue\"\n                    v-text=\"text\">\n                </option>\n              </select>\n            </label>\n\n            <label class=\"city\" :class=\"notIe\">\n              <select\n                :value=\"cityValue\"\n                @change=\"onchange('city', $event.target.value)\">\n                <option value=\"\" v-text=\"placeholder.city\"></option>\n                <option v-for=\"(text, value) in cityList\"\n                    :value=\"value\"\n                    :selected=\"value===cityValue\"\n                    v-text=\"text\">\n                </option>\n              </select>\n            </label>\n\n            <label class=\"district\" v-show=\"!twoSelect\" :class=\"notIe\">\n              <select\n                :value=\"districtValue\"\n                @change=\"onchange('district', $event.target.value)\">\n                <option value=\"\" v-text=\"placeholder.district\"></option>\n                <option v-for=\"(text, value) in districtList\"\n                    :value=\"value\"\n                    :selected=\"value===districtValue\"\n                    v-text=\"text\">\n                </option>\n              </select>\n            </label>\n        </div>\n    ",
+    template: "\n        <div class=\"city-picker\">\n            <label class=\"province\" :class=\"isChrome\">\n              <select\n                :value=\"provinceValue\"\n                @change=\"onchange('province', $event.target.value)\">\n                <option value=\"\" v-text=\"placeholder.province\"></option>\n                <option v-for=\"(text, value) in provinceList\"\n                    :value=\"value\"\n                    :selected=\"value===provinceValue\"\n                    v-text=\"text\">\n                </option>\n              </select>\n            </label>\n\n            <label class=\"city\" :class=\"isChrome\">\n              <select\n                :value=\"cityValue\"\n                @change=\"onchange('city', $event.target.value)\">\n                <option value=\"\" v-text=\"placeholder.city\"></option>\n                <option v-for=\"(text, value) in cityList\"\n                    :value=\"value\"\n                    :selected=\"value===cityValue\"\n                    v-text=\"text\">\n                </option>\n              </select>\n            </label>\n\n            <label class=\"district\" v-show=\"!twoSelect\" :class=\"isChrome\">\n              <select\n                :value=\"districtValue\"\n                @change=\"onchange('district', $event.target.value)\">\n                <option value=\"\" v-text=\"placeholder.district\"></option>\n                <option v-for=\"(text, value) in districtList\"\n                    :value=\"value\"\n                    :selected=\"value===districtValue\"\n                    v-text=\"text\">\n                </option>\n              </select>\n            </label>\n        </div>\n    ",
     props: {
         province: {
             type: String,
@@ -80,11 +80,10 @@ exports.default = {
         };
     },
     computed: {
-        notIe: function() {
-            var isIe = (/Trident\/7\./).test(navigator.userAgent);
+        isChrome: function () {
             return {
-                'not-ie': !isIe
-            }
+                'is-chrome': window.navigator.userAgent.indexOf('Chrome') !== -1
+            };
         }
     },
     // 解析数据

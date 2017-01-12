@@ -1,6 +1,6 @@
 <template>
     <div class="city-picker">
-        <label class="province" :class="notIe">
+        <label class="province" :class="isChrome">
           <select
             :value="provinceValue"
             @change="onchange('province', $event.target.value)">
@@ -13,7 +13,7 @@
           </select>
         </label>
 
-        <label class="city" :class="notIe">
+        <label class="city" :class="isChrome">
           <select
             :value="cityValue"
             @change="onchange('city', $event.target.value)">
@@ -26,7 +26,7 @@
           </select>
         </label>
 
-        <label class="district" v-show="!twoSelect" :class="notIe">
+        <label class="district" v-show="!twoSelect" :class="isChrome">
           <select
             :value="districtValue"
             @change="onchange('district', $event.target.value)">
@@ -110,11 +110,10 @@ export default {
         };
     },
     computed: {
-        notIe() {
-            let isIe = (/Trident\/7\./).test(navigator.userAgent);
+        isChrome() {
             return {
-                'not-ie': !isIe
-            }
+                'is-chrome': window.navigator.userAgent.indexOf('Chrome') !== -1;
+            };
         }
     },
     // 解析数据
